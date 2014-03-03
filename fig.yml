@@ -1,0 +1,39 @@
+activemq:
+  image: motech/activemq:5.5.1
+  ports:
+    - 61616:61616
+    - 8161:8161
+couchdb:
+  image: motech/couchdb:1.5.0
+  ports:
+    - 5984:5984
+  links:
+    - lucene
+lucene:
+  image: motech/couchdb-lucene:0.9.0
+  ports:
+    - 5985:5985
+db:
+  image: orchardup/mysql
+  ports:
+    - 3306:3306
+#  volumes:
+#    - /mysql:/var/lib/mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+statsd:
+  image: jayofdoom/trusty-graphite-standalone
+  ports:
+    - 80:80
+    - 8125/udp:8125/udp 
+    - 2003:2003
+    - 2004:2004
+    - 7002:7002
+#motech:
+#  image: motech/motech:0.22-SNAPSHOT
+#  ports:
+#    - 8080
+#  links:
+#    - couchdb
+#    - mysql
+#    - activemq

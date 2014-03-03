@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+su - couchdb -c 'mon /opt/couchdb-lucene-0.9.0/bin/run'
+
