@@ -17,7 +17,7 @@ chmod 664 /usr/local/etc/couchdb/*.ini
 chmod 775 /usr/local/etc/couchdb/*.d
 
 # Set up the proxy for couch lucene
-sed -e 's/^;_google = {couch_httpd_proxy, handle_proxy_req, <<"http:\/\/www.google.com">>}$/_fti = {couch_httpd_proxy, handle_proxy_req, <<"http:\/\/'$LUCENE_PORT_5985_TCP_ADDR':'$LUCENE_PORT_5985_TCP_PORT'">>}/' -i /usr/local/etc/couchdb/local.ini
+sed -e 's/^;_google = {couch_httpd_proxy, handle_proxy_req, <<"http:\/\/www.google.com">>}$/_fti = {couch_httpd_proxy, handle_proxy_req, <<"http:\/\/'$LUCENE_1_PORT_5985_TCP_ADDR':'$LUCENE_PORT_5985_TCP_PORT'">>}/' -i /usr/local/etc/couchdb/local.ini
 
 su - couchdb -c 'mon couchdb'
 

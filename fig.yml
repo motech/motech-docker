@@ -29,11 +29,17 @@ statsd:
     - 2003:2003
     - 2004:2004
     - 7002:7002
-#motech:
-#  image: motech/motech:0.22-SNAPSHOT
-#  ports:
-#    - 8080
-#  links:
-#    - couchdb
-#    - mysql
-#    - activemq
+motech:
+  image: motech/motech:config
+  ports:
+    - "8080:8080"
+    - "8000:8000"
+  links:
+    - couchdb
+    - db
+    - activemq
+  environment:
+    HOME: /root
+    DB_TYPE: mysql
+    DB_USER: root
+    DB_PASSWORD: password
