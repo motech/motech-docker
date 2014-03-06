@@ -41,6 +41,7 @@ ADD ./root/motech/config/bootstrap.properties /root/.motech/config/bootstrap.pro
 ADD ./root/motech/config/motech-settings.properties /root/.motech/config/motech-settings.properties
 
 ADD ./root/run.sh /root/run.sh
+ADD ./root/admin-user.json /root/admin-user.json
 RUN chmod a+x /root/run.sh
 
 # Need to start tomcat
