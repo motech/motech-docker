@@ -13,6 +13,9 @@ sed -e 's/DB_PORT/'$DB_1_PORT_3306_TCP_PORT'/' -i /root/.motech/config/bootstrap
 sed -e 's/DB_USER/'$DB_USER'/' -i /root/.motech/config/bootstrap.properties
 sed -e 's/DB_PASSWORD/'$DB_PASSWORD'/' -i /root/.motech/config/bootstrap.properties
 
+sed -e 's/STATSD_PORT/'$STATSD_1_PORT_8125_UDP_PORT'/' -i /root/.motech/config/org.motechproject.metrics/statsdAgent.properties
+sed -e 's/STATSD_HOST/'$STATSD_1_PORT_80_TCP_ADDR'/' -i /root/.motech/config/org.motechproject.metrics/statsdAgent.properties
+
 # Add the admin user to the database
 sleep 15s
 echo "****************************************************************************************"
