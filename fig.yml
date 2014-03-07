@@ -14,13 +14,16 @@ lucene:
   ports:
     - 5985:5985
 db:
-  image: orchardup/mysql
+  image: motech/mysql
   ports:
     - 3306:3306
 #  volumes:
 #    - /mysql:/var/lib/mysql
   environment:
     MYSQL_ROOT_PASSWORD: password
+    MYSQL_USER: quartz
+    MYSQL_PASSWORD: quartz2123
+    MYSQL_DATABASE: motechquartz
 statsd:
   image: jayofdoom/trusty-graphite-standalone
   ports:
