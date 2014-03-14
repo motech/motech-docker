@@ -7,11 +7,6 @@ couchdb:
   image: motech/couchdb:1.5.0
   ports:
     - 5984:5984
-  links:
-    - lucene
-lucene:
-  image: motech/couchdb-lucene:0.9.0
-  ports:
     - 5985:5985
 db:
   image: motech/mysql
