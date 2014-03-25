@@ -40,6 +40,7 @@ sleep 5s
 
 echo "***************** Second"
 /usr/bin/mysql -u root --password=$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /tmp/create_db_schema_quartz_v2.1.sql
+echo "CREATE DATABASE IF NOT EXISTS motech_data_services CHARACTER SET utf8 COLLATE utf8_general_ci;" | /usr/bin/mysql -u root --password=$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE
 
 echo "***************** Stop"
 /usr/bin/mysqladmin -u root --password=$MYSQL_ROOT_PASSWORD shutdown
