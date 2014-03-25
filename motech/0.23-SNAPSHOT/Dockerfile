@@ -1,16 +1,16 @@
-# FROM motech/java:oracle-jdk7
+FROM motech/java:oracle-jdk7
 
-# RUN apt-get --yes install curl wget maven git
+RUN apt-get --yes install curl wget maven git
 
-# # Install Tomcat7
-# RUN cd /opt ; wget http://apache.cs.utah.edu/tomcat/tomcat-7/v7.0.52/bin/apache-tomcat-7.0.52.tar.gz
-# RUN cd /opt && tar xvzf apache-tomcat-7.0.52.tar.gz
-# ADD tomcat7/conf/tomcat-users.xml /opt/apache-tomcat-7.0.52/conf/tomcat-users.xml
-# RUN printf "export CATALINA_HOME=/opt/tomcat7\n" >> ~/.bashrc
-# RUN ln -s /opt/apache-tomcat-7.0.52 /opt/tomcat7
+# Install Tomcat7
+RUN cd /opt ; wget http://apache.cs.utah.edu/tomcat/tomcat-7/v7.0.52/bin/apache-tomcat-7.0.52.tar.gz
+RUN cd /opt && tar xvzf apache-tomcat-7.0.52.tar.gz
+ADD tomcat7/conf/tomcat-users.xml /opt/apache-tomcat-7.0.52/conf/tomcat-users.xml
+RUN printf "export CATALINA_HOME=/opt/tomcat7\n" >> ~/.bashrc
+RUN ln -s /opt/apache-tomcat-7.0.52 /opt/tomcat7
 
-# EXPOSE 8080
-# EXPOSE 8000
+EXPOSE 8080
+EXPOSE 8000
 
 # # Checkout and compile motech
 # RUN cd /opt && git clone https://code.google.com/p/motech
@@ -35,10 +35,18 @@
 # # move platform server war to tomcat dir
 # RUN cp /opt/motech/platform/server/target/motech-platform-server.war /opt/tomcat7/webapps/
 
-FROM motech/motech:0.23-SNAPSHOT
+# FROM motech/motech:0.23-SNAPSHOT
+
+RUN rm -rf /opt/tomcat7/webapps/motech-platform-server.war /root/.motech/bundles
+
+ADD ./root/motech/bundles /root/.motech/bundles
+ADD ./opt/tomcat7/webapps/motech-platform-server.war /tmp/motech-platform-server.war
+RUN mv /tmp/motech-platform-server.war /opt/tomcat7/webapps/motech-platform-server.war
 
 ADD ./root/motech/config/bootstrap.properties /root/.motech/config/bootstrap.properties
 ADD ./root/motech/config/motech-settings.properties /root/.motech/config/motech-settings.properties
+
+ADD ./root/motech/config/org.motechproject.metrics/statsdAgent.properties /root/.motech/config/org.motechproject.metrics/statsdAgent.properties
 
 ADD ./root/run.sh /root/run.sh
 ADD ./root/admin-user.json /root/admin-user.json
