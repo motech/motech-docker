@@ -28,7 +28,7 @@ statsd:
     - 2004:2004
     - 7002:7002
 motech:
-  image: motech/test
+  image: motech/motech:0.23-SNAPSHOT
   ports:
     - "8080:8080"
     - "8000:8000"
