@@ -27,8 +27,8 @@ statsd:
     - 2003:2003
     - 2004:2004
     - 7002:7002
-tomcat:
-  image: motech/tomcat:7.0.53
+motech:
+  image: motech/motech:0.23-SNAPSHOT
   ports:
     - "8080:8080"
     - "8000:8000"
@@ -39,11 +39,9 @@ tomcat:
     - statsd
   environment:
     JAVA_OPTS: -Xms1024m -Xmx2048m -XX:MaxPermSize=1024m
-    # HOME: /root
-    # USER: root
+    HOME: /root
+    USER: root
     DB_TYPE: mysql
     DB_USER: root
     DB_PASSWORD: password
-    MOTECH_HOME: /root/.motech
-  volumes:
-    - /home/HOST_USERNAME/.motech:/root/.motech
+    
