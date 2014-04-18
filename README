@@ -5,6 +5,7 @@ this README and the *.yml files
 
 
 
+
 Setup
 -------------------------------------------------------------------------------
 To setup as an implementer (everything is automagically installed):
@@ -68,6 +69,17 @@ to watch only the tomcat logs:
 
 see the sections in the generated fig.yml to see what other logs you can watch
 
+
+
+
+Details
+-------------------------------------------------------------------------------
+The implementer setup (imp.yml) uses the motech/motech:0.23-SNAPSHOT container
+which includes tomcat as well as the motech binaries.
+The developer setup (dev.yml) uses the motech/tomcat:7.0.53 container which, in
+addition to including tomcat, also shares the container's /root/.motech 
+directory with the host's /home/{user}/.motech directory (hence the sed line in
+the setup_as_dev.sh script)
 
 
 
