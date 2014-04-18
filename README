@@ -1,0 +1,78 @@
+Firstly
+-------------------------------------------------------------------------------
+All commands must be ran from the docker directory, that's the one containing 
+this README and the *.yml files
+
+
+
+Setup
+-------------------------------------------------------------------------------
+To setup as an implementer (everything is automagically installed):
+./setup_as_imp.sh
+
+To setup as a dev (you just build & all the bits go to the tomcat container):
+./setup_as_dev.sh
+
+
+
+
+Starting MOTECH the first time
+-------------------------------------------------------------------------------
+Type the following:
+
+  fig up -d
+
+which will start MOTECH in the background
+wait a little bit then direct your browser to:
+http://localhost:8080/motech-platform-server
+
+****************************
+*** SUPER IMPORTANT NOTE ***
+****************************
+'fig up' ERASES ALL YOUR DATA
+you have to run it at least once to setup MOTECH
+if you run it again, it'll erase everything you did in MOTECH
+it's useful to start afresh, but remember: it nukes everything
+
+
+
+
+Stop MOTECH
+-------------------------------------------------------------------------------
+Type the following:
+
+  fig stop
+
+
+
+
+Restart MOTECH
+-------------------------------------------------------------------------------
+Type the following:
+
+  fig start
+
+
+
+
+Watching logs
+-------------------------------------------------------------------------------
+ 
+to watch all the logs (very verbose):
+
+  fig logs
+
+to watch only the tomcat logs:
+
+  fig logs tomcat
+
+see the sections in the generated fig.yml to see what other logs you can watch
+
+
+
+
+
+Lastly
+-------------------------------------------------------------------------------
+Please don't forget what I wrote in the *** SUPER IMPORTANT NOTE *** above
+Email questions to: fhuster@grameenfoundation.org
