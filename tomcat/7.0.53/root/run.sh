@@ -3,7 +3,7 @@
 #
 # create destination directories
 #
-mkdir -p $MOTECH_HOME/config/org.motechproject.metrics
+mkdir -p /root/.motech/config/org.motechproject.metrics /root/.motech/bundles
 
 #
 # create bootstrap.properties
@@ -14,7 +14,7 @@ tenant.id=tomcat7
 sql.url=jdbc:'$DB_TYPE'://'$DB_1_PORT_3306_TCP_ADDR':'$DB_1_PORT_3306_TCP_PORT'/
 sql.user='$DB_USER'
 sql.password='$DB_PASSWORD'
-' > $MOTECH_HOME/config/bootstrap.properties
+' > /root/.motech/config/bootstrap.properties
 
 #
 # create motech-settings.properties
@@ -35,7 +35,7 @@ jms.concurrentConsumers=1
 jms.maxConcurrentConsumers=10
 jms.session.cache.size=10
 jms.cache.producers=false
-' > $MOTECH_HOME/config/motech-settings.properties
+' > /root/.motech/config/motech-settings.properties
 
 #
 # create statsdAgent.properties
@@ -43,12 +43,13 @@ jms.cache.producers=false
 echo 'serverHost='$STATSD_1_PORT_80_TCP_ADDR'
 generateHostBasedStats=true
 graphiteUrl=http://'$STATSD_1_PORT_80_TCP_ADDR'
-serverPort='$STATSD_1_PORT_8125_UDP_PORT > $MOTECH_HOME/config/org.motechproject.metrics/statsdAgent.properties
+serverPort='$STATSD_1_PORT_8125_UDP_PORT > /root/.motech/config/org.motechproject.metrics/statsdAgent.properties
 
 #
-# make MOTECH config rw so host user can build & tweak
+# make MOTECH bundles & config dirs rw to host user so they can copy binaries & tweak config
 #
-chmod -R a+rw $MOTECH_HOME
+chmod -R a+rw /root/.motech/bundles
+chmod -R a+rw /root/.motech/config
 
 #
 # start tomcat in debug mode (jpda)
