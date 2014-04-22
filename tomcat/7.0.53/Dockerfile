@@ -20,6 +20,7 @@ EXPOSE 8000
 #
 # Create MOTECH config files & start Tomcat in debug mode
 #
+ADD ./root/.motech /root/.motech
 ADD ./root/run.sh /root/run.sh
 RUN chmod a+x /root/run.sh
 CMD ["/root/run.sh"]
