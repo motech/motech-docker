@@ -85,9 +85,9 @@ sudo ln -s /docker-motech-bundles .motech/bundles
 [If you built MOTECH before, you can just delete the bundles directory and create
 the symlink using the command above.]
 
-[Build MOTECH](http://j.mp/1rkvpIf)
+Build MOTECH: see http://j.mp/1rkvpIf
 
-Then [Deploy & run MOTECH](http://j.mp/1rgoscZ)
+Then Deploy & run MOTECH: see http://j.mp/1rgoscZ
 
 
 
