@@ -80,7 +80,7 @@ cd
 mkdir .motech
 
 # create the symlink
-sudo ln -s docker-motech-bundles .motech/bundles
+ln -s docker-motech-bundles .motech/bundles
 
 [If you built MOTECH before, you can just delete the bundles directory and create
 the symlink using the command above.]
