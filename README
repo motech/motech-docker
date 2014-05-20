@@ -1,5 +1,6 @@
 Firstly
 --------------------------------------------------------------------------------
+Install [docker.io](http://docker.io), install [Fig](http://orchardup.github.io/fig/).
 All commands must be run from the docker directory, that's the one containing 
 this README and the *.yml files
 
