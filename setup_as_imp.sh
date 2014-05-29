@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sed -e "s/HOST_USERNAME/`whoami`/" dev.yml > fig.yml
+sed -e "s/HOST_USERNAME/`whoami`/" imp.yml > fig.yml
