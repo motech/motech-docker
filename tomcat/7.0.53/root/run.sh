@@ -54,4 +54,5 @@ chmod -R a+rw /root/.motech/config
 #
 # start tomcat in debug mode (jpda)
 #
-/opt/tomcat7/bin/catalina.sh jpda run
+/opt/tomcat7/bin/catalina.sh jpda start
+tail -f /opt/tomcat7/logs/catalina.out
