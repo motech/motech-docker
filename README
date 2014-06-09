@@ -1,6 +1,7 @@
 Firstly
 --------------------------------------------------------------------------------
-Install docker http://docker.io & install fig http://orchardup.github.io/fig
+Install docker http://docker.io (also be sure to follow the 'Giving non-root 
+access' instructions at the end) & install fig http://orchardup.github.io/fig
 All commands must be run from the docker directory, that's the one containing 
 this README and the *.yml files
 
