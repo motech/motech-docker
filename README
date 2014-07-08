@@ -10,7 +10,7 @@ this README and the *.yml files
 
 Details
 --------------------------------------------------------------------------------
-The implementer setup (imp.yml) uses the motech/motech:0.23-SNAPSHOT container
+The implementer setup (imp.yml) uses the motech/motech:0.24-SNAPSHOT container
 which includes tomcat as well as the motech binaries.
 The developer setup (dev.yml) uses the motech/tomcat:7.0.53 container which, in
 addition to including tomcat, also shares the container's /root/.motech 
