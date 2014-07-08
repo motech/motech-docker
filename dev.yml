@@ -19,14 +19,6 @@ db:
     MYSQL_USER: quartz
     MYSQL_PASSWORD: quartz2123
     MYSQL_DATABASE: motechquartz
-statsd:
-  image: jayofdoom/trusty-graphite-standalone
-  ports:
-    - 80:80
-    - 8125/udp:8125/udp 
-    - 2003:2003
-    - 2004:2004
-    - 7002:7002
 tomcat:
   image: motech/tomcat:7.0.53
   ports:
