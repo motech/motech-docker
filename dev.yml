@@ -33,6 +33,7 @@ tomcat:
     DB_TYPE: mysql
     DB_USER: root
     DB_PASSWORD: password
+    DB_DRIVER: com.mysql.jdbc.Driver
   volumes:
     - /home/HOST_USERNAME/docker-motech-config:/root/.motech/config
     - /home/HOST_USERNAME/docker-motech-bundles:/root/.motech/bundles
