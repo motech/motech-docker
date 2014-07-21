@@ -14,6 +14,7 @@ tenant.id=tomcat7
 sql.url=jdbc:'$DB_TYPE'://'$DB_1_PORT_3306_TCP_ADDR':'$DB_1_PORT_3306_TCP_PORT'/
 sql.user='$DB_USER'
 sql.password='$DB_PASSWORD'
+sql.driver='$DB_DRIVER'
 ' > /root/.motech/config/bootstrap.properties
 
 #
