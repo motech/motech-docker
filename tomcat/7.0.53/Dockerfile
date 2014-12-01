@@ -11,6 +11,7 @@ ENV TOMCAT_VERSION 7.0.53
 RUN cd /opt ; wget http://apache.cs.utah.edu/tomcat/tomcat-7/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz
 RUN cd /opt && tar xvzf apache-tomcat-${TOMCAT_VERSION}.tar.gz
 ADD tomcat7/conf/tomcat-users.xml /opt/apache-tomcat-${TOMCAT_VERSION}/conf/tomcat-users.xml
+ADD tomcat7/webapps/manager/WEB-INF/web.xml /opt/apache-tomcat-${TOMCAT_VERSION}/webapps/manager/WEB-INF/web.xml
 RUN printf "export CATALINA_HOME=/opt/tomcat7\n" >> ~/.bashrc
 RUN ln -s /opt/apache-tomcat-${TOMCAT_VERSION} /opt/tomcat7
 
