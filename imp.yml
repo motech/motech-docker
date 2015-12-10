@@ -19,7 +19,7 @@ db:
     MYSQL_USER: quartz
     MYSQL_PASSWORD: quartz2123
     MYSQL_DATABASE: motechquartz
-motech:
+tomcat:
   image: motech/motech:0.25.5
   ports:
     - "8080:8080"
