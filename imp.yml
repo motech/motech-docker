@@ -20,7 +20,7 @@ db:
     MYSQL_PASSWORD: quartz2123
     MYSQL_DATABASE: motechquartz
 tomcat:
-  image: motech/motech:0.25.6
+  image: motech/motech:war
   ports:
     - "8080:8080"
     - "8000:8000"
@@ -36,3 +36,4 @@ tomcat:
     DB_USER: root
     DB_PASSWORD: password
     DB_DRIVER: com.mysql.jdbc.Driver
+    MOTECH_VERSION: 0.27.1
