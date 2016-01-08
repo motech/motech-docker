@@ -14,6 +14,23 @@ sed -e 's/DB_USER/'$DB_USER'/' -i /root/.motech/config/bootstrap.properties
 sed -e 's/DB_PASSWORD/'$DB_PASSWORD'/' -i /root/.motech/config/bootstrap.properties
 sed -e 's/DB_DRIVER/'$DB_DRIVER'/' -i /root/.motech/config/bootstrap.properties
 
-wget "http://nexus.motechproject.org/service/local/repositories/releases/content/org/motechproject/motech-platform-server/${MOTECH_VERSION}/motech-platform-server-${MOTECH_VERSION}.war" -O /opt/tomcat7/webapps/motech-platform-server.war
+if [[ "$MOTECH_VERSION" == *-SNAPSHOT ]]
+then
+	REPO="snapshots"
+else
+	REPO="releases"
+fi
+
+# Pre 1.0 versions use java 7, not 8
+if [[ "$MOTECH_VERSION" == 0* ]]
+then
+	update-java-alternatives -s java-7-oracle
+	echo "Preparing MOTECH ${MOTECH_VERSION}. Using JAVA 7."
+else
+	update-java-alternatives -s java-8-oracle
+	echo "Preparing MOTECH ${MOTECH_VERSION}. Using JAVA 8."
+fi
+
+curl -L "http://nexus.motechproject.org/service/local/artifact/maven/redirect?r=${REPO}&g=org.motechproject&a=motech-platform-server&p=war&v=${MOTECH_VERSION}" -o /opt/tomcat7/webapps/motech-platform-server.war
 
 /opt/tomcat7/bin/catalina.sh run
