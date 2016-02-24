@@ -1,0 +1,20 @@
+#Building motech-centos image based on rpm.
+
+1. Install docker-machine : https://docs.docker.com/engine/installation/linux/ubuntulinux/
+2. Copy to destination folder with Dockerfile and run.sh script:
+*	/motech/packaging/rpm/target/rpm/motech-base/RPMS/noarch/*.rpm (rename on motech-base.rpm)	
+*	/motech/target/rpm/motech/RPMS/noarch/*.rpm (rename on motech.rpm)
+3. sudo docker build ./detination_folder
+
+#Starting motech from motech-centos image
+
+4. Run image (sudo docker run -ti id_image)
+5. Run script with command ./run.sh
+6. Chceck image ip with ifconfig
+7. Run mysqld command
+8. If rpm's were correct you should have bootstrat motech on  (IP from point 6) ip:8080
+9. Click everywhere use suggestion, but change 'localhost' on ip from point 6. For example: tcp://localhost:61616 on tcp://ip:61616
+10. SQL Username: mysql SQL Password: blank (word 'blank')
+11. Verify and start motech
+
+
