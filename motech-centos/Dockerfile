@@ -27,4 +27,5 @@ RUN yum install systemd-sysv -y
 ADD run.sh /run.sh
 RUN chmod a+x /run.sh
 
+CMD ["/run.sh"]
 
