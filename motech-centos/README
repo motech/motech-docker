@@ -4,13 +4,14 @@
 2. Copy to destination folder with Dockerfile and run.sh script:
 *	/motech/packaging/rpm/target/rpm/motech-base/RPMS/noarch/*.rpm (rename on motech-base.rpm)	
 *	/motech/target/rpm/motech/RPMS/noarch/*.rpm (rename on motech.rpm)
-3. sudo docker build -t motech/motech:centos ./detination_folder
+3. sudo docker build -t motech/motech:centos ./destination_folder
 
 #Starting motech from motech-centos image
 
 4. Run image (sudo docker run -d motech/motech:centos)
-5. If rpm's were correct you should have bootstrap motech on  (IP from point 6) ip:8080
-6. Use suggestions for inputs
-7. SQL Username: mysql SQL Password: password
-8. Verify and start motech
+5. Check container's IP (ifconfig) 
+6. If rpm's were correct you should have bootstrap motech on  (IP from point 5) ip:8080
+7. Use suggestions for inputs
+8. SQL Username: mysql SQL Password: password
+9. Verify and start motech
 
