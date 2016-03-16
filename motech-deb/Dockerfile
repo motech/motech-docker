@@ -21,7 +21,6 @@ RUN dpkg -i motech-base.deb
 ADD /motech.deb /motech.deb
 RUN dpkg -i motech.deb
 
-EXPOSE 61616 8161
 EXPOSE 8080
 
 ADD run.sh /run.sh
