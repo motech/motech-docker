@@ -1,25 +1,20 @@
-FROM ubuntu:latest
+FROM ubuntu:15.04
 
 RUN apt-get update
 
-#Install Java 8
-RUN apt-get install software-properties-common -y
-RUN add-apt-repository ppa:webupd8team/java
-RUN apt-get update
-# Set some vars so the oracle installer doesn't ask us to accept the license
-RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
-RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
-RUN apt-get install -y oracle-java8-installer
+#Install simple tool for installing deb files
+RUN apt-get install gdebi-core -y
 
-#Install tomcat, activemq, mysql, curl
-RUN apt-get install tomcat7 -y
-RUN apt-get install -y activemq mysql-server curl
+#Install mysql-server and set password to 'password'
+RUN echo "mysql-server mysql-server/root_password password password" | debconf-set-selections
+RUN echo "mysql-server mysql-server/root_password_again password password" | debconf-set-selections
+RUN apt-get install -y mysql-server
 
-#Install motech DEB
+#Install motech DEB with dependencies
 ADD /motech-base.deb /motech-base.deb
-RUN dpkg -i motech-base.deb
+RUN gdebi --non-interactive motech-base.deb
 ADD /motech.deb /motech.deb
-RUN dpkg -i motech.deb
+RUN gdebi --non-interactive motech.deb
 
 EXPOSE 8080
 
