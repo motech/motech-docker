@@ -22,7 +22,7 @@ else
 fi
 
 # Pre 1.0 versions use java 7, not 8
-if [[ "$MOTECH_VERSION" == 0* ]]
+if [[ "$MOTECH_VERSION" == 0* && "$MOTECH_VERSION" != 0.29* ]]
 then
 	update-java-alternatives -s java-7-oracle
 	echo "Preparing MOTECH ${MOTECH_VERSION}. Using JAVA 7."
