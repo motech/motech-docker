@@ -36,4 +36,4 @@ tomcat:
     DB_USER: root
     DB_PASSWORD: password
     DB_DRIVER: com.mysql.jdbc.Driver
-    MOTECH_VERSION: 0.27.1
+    MOTECH_VERSION: 0.28
