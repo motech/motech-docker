@@ -1,0 +1,16 @@
+#Building motech-deb image based on deb.
+
+1. Install docker-machine : https://docs.docker.com/engine/installation/linux/ubuntulinux/
+2. Copy to destination folder with Dockerfile and run.sh script:
+*	/motech/packaging/deb/target/motech-base_xxx.deb (rename on motech-base.deb)	
+*	/motech/packaging/deb/target/motech_xxx.deb (rename on motech.deb)
+3. sudo docker build -t motech/motech:deb ./destination_folder
+
+#Starting motech from motech-deb image
+
+4. Run image (sudo docker run -d motech/motech:deb)
+5. Check container's IP (ifconfig)
+6. If container is running properly, motech instance will be available on ip:8080 (IP from point 5)
+7. SQL Username: root, SQL Password: password
+8. Verify and start motech
+
